@@ -10,7 +10,11 @@ const MenuBar = () => {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link href="/AboutUs">About Us</Link></li>
-                    <li><Link to="/ContactUs">Contact Us</Link></li>
+                    <li><Link to="/Profile">Profile</Link></li>
+                    <li><Link to="/Admin">Admin</Link></li>
+
+                    <li><Link to="/Transfer">Transfer</Link></li>
+
                 </ul>
 
                 <ul className="social">

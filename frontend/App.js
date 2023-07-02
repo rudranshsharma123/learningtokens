@@ -88,38 +88,13 @@ export default function App({ isSignedIn, contractId, wallet, mainContractId }) 
 
   return (
     <React.Fragment>
-      <MenuBar isSignedIn={isSignedIn} contractId={contractId} wallet={wallet} mainContractId={mainContractId} />
 
       <main className={uiPleaseWait ? 'please-wait' : ''}>
         <Header />
-        <Pricing />
         <Testimonials />
-        <SignOutButton accountId={wallet.accountId} onClick={() => wallet.signOut()} />
 
 
-        <h1>
-          The contract says: <span className="greeting">{valueFromBlockchain}</span>
-        </h1>
-        <button onClick={tranferFt}>Yolo</button>
-        <button onClick={newFt}>New</button>
-        <button onClick={getAllOrgs}>All</button>
-        <button onClick={registerOrgs}>Register</button>
-        <>{console.log(parseNearAmount("1"))}</>
-        <form onSubmit={changeGreeting} className="change">
-          <label>Change greeting:</label>
-          <div>
-            <input
-              autoComplete="off"
-              defaultValue={valueFromBlockchain}
-              id="greetingInput"
-            />
-            <button onClick={setStorage}>
-              <span>Save</span>
-              <div className="loader"></div>
-            </button>
-          </div>
-        </form>
-        <EducationalText />
+
       </main>
     </React.Fragment>
   );
