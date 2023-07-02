@@ -1,6 +1,6 @@
 import React from 'react';
-
-export function SignInPrompt({greeting, onClick}) {
+// import './assets/global.css'
+export function SignInPrompt({ greeting, onClick }) {
   return (
     <main>
       <h1>
@@ -19,7 +19,7 @@ export function SignInPrompt({greeting, onClick}) {
         just like the main network ("mainnet"), but using NEAR Tokens that are
         only for testing!
       </p>
-      <br/>
+      <br />
       <p style={{ textAlign: 'center' }}>
         <button onClick={onClick}>Sign in with NEAR Wallet</button>
       </p>
@@ -27,7 +27,7 @@ export function SignInPrompt({greeting, onClick}) {
   );
 }
 
-export function SignOutButton({accountId, onClick}) {
+export function SignOutButton({ accountId, onClick }) {
   return (
     <button style={{ float: 'right' }} onClick={onClick}>
       Sign out {accountId}

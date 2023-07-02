@@ -1,13 +1,20 @@
 // React
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-
+import './index.css';
+import MenuBar from './components/navigations/MenuBar';
+import App from './App'
 // NEAR
 import { Wallet } from './near-wallet';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 const CONTRACT_ADDRESS = "rudransh12.testnet"
-const ENTRY_CONTRACT_ADDRESS = "spiderman1.testnet"
+const ENTRY_CONTRACT_ADDRESS = "entrypoint123.testnet"
+import Layout from './layout/Layout'
+import Home from './components/pages/Home'
+import AboutUs from './components/pages/AboutUs'
+import ContactUs from './components/pages/ContactUs'
+
+import './App.css';
 // When creating the wallet you can optionally ask to create an access key
 // Having the key enables to call non-payable methods without interrupting the user to sign
 const wallet = new Wallet({})
@@ -17,7 +24,15 @@ window.onload = async () => {
   const isSignedIn = await wallet.startUp()
 
   ReactDOM.render(
-    <App isSignedIn={isSignedIn} contractId={CONTRACT_ADDRESS} mainContractId={ENTRY_CONTRACT_ADDRESS} wallet={wallet} />,
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<App isSignedIn={isSignedIn} contractId={CONTRACT_ADDRESS} wallet={wallet} mainContractId={ENTRY_CONTRACT_ADDRESS} />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/ContactUs" element={<ContactUs isSignedIn={isSignedIn} contractId={CONTRACT_ADDRESS} wallet={wallet} mainContractId={ENTRY_CONTRACT_ADDRESS} />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>,
     document.getElementById('root')
   );
 }

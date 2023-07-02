@@ -1,10 +1,15 @@
 import 'regenerator-runtime/runtime';
 import React from 'react';
 
-import './assets/global.css';
+// import './assets/global.css';
 
 import { EducationalText, SignInPrompt, SignOutButton } from './ui-components';
+import MenuBar from './components/navigations/MenuBar';
+import { parseNearAmount } from 'near-api-js/lib/utils/format';
 
+import Testimonials from './components/misc/Testimonials'
+import Pricing from './components/misc/Pricing'
+import Header from './components/misc/Header'
 
 export default function App({ isSignedIn, contractId, wallet, mainContractId }) {
   const [valueFromBlockchain, setValueFromBlockchain] = React.useState();
@@ -60,7 +65,7 @@ export default function App({ isSignedIn, contractId, wallet, mainContractId }) 
     console.log(s)
   }
   function getAllOrgs() {
-    return wallet.viewMethod({ contractId: mainContractId, args: { id: "spiderman1.testnet" }, method: 'get_orgs' }).then(setOrgs)
+    return wallet.viewMethod({ contractId: mainContractId, method: 'get_orgs' }).then(setOrgs)
       .catch(alert)
       .finally(() => {
         setUiPleaseWait(false);
@@ -82,16 +87,24 @@ export default function App({ isSignedIn, contractId, wallet, mainContractId }) 
   }
 
   return (
-    <>
-      <SignOutButton accountId={wallet.accountId} onClick={() => wallet.signOut()} />
+    <React.Fragment>
+      <MenuBar isSignedIn={isSignedIn} contractId={contractId} wallet={wallet} mainContractId={mainContractId} />
+
       <main className={uiPleaseWait ? 'please-wait' : ''}>
+        <Header />
+        <Pricing />
+        <Testimonials />
+        <SignOutButton accountId={wallet.accountId} onClick={() => wallet.signOut()} />
+
+
         <h1>
           The contract says: <span className="greeting">{valueFromBlockchain}</span>
         </h1>
         <button onClick={tranferFt}>Yolo</button>
         <button onClick={newFt}>New</button>
         <button onClick={getAllOrgs}>All</button>
-        <>{console.log(orgs)}</>
+        <button onClick={registerOrgs}>Register</button>
+        <>{console.log(parseNearAmount("1"))}</>
         <form onSubmit={changeGreeting} className="change">
           <label>Change greeting:</label>
           <div>
@@ -108,6 +121,6 @@ export default function App({ isSignedIn, contractId, wallet, mainContractId }) 
         </form>
         <EducationalText />
       </main>
-    </>
+    </React.Fragment>
   );
 }
