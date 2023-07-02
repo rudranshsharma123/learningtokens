@@ -1,100 +1,67 @@
-near-blank-project
-==================
+Certainly! Here's a template for a README.md file for your Learning Tokens project:
 
-This app was initialized with [create-near-app]
+# Learning Tokens
 
+Learning Tokens is a project aimed at recognizing and rewarding community engagement in collective learning through the use of tokens. The project utilizes a hybrid token system that combines fungible and non-fungible token characteristics to incentivize and certify the acquisition of skills and competencies within learning communities.
 
-Quick Start
-===========
+## Table of Contents
 
-If you haven't installed dependencies during setup:
+- [Introduction](#introduction)
+- [Token Characteristics](#token-characteristics)
+- [Token Properties](#token-properties)
+- [Collaborations](#collaborations)
+- [Implementation](#implementation)
+- [Future Opportunities](#future-opportunities)
+- [Getting Started](#getting-started)
+- [Contributing](#contributing)
+- [License](#license)
 
-    npm install
+## Introduction
 
+Learning Tokens provide a positive reinforcer for valuable behaviors that contribute to the growth and development of individuals and learning communities. By utilizing a token system, the project aims to create an environment that fosters engagement, collaboration, and continuous learning. The tokens act as tangible representations of community engagement and skills acquisition, offering participants recognition and rewards for their contributions.
 
-Build and deploy your contract to TestNet with a temporary dev account:
+## Token Characteristics
 
-    npm run deploy
+Learning Tokens have the following characteristics:
 
-Test your contract:
+- Token Type: Two types of tokens, fungible and non-fungible.
+- Token Unit: Singleton, with no subdivision.
+- Value Type: Intrinsic, the token itself holds value.
+- Representation Type: Common for fungible engagement rewards, unique for non-fungible certificates.
+- Template Type: Single for engagement rewards without child tokens, hybrid with a single parent and multiple child tokens for certificates in learning paths.
 
-    npm test
+## Token Properties
 
-If you have a frontend, run `npm start`. This will run a dev server.
+The Learning Tokens possess the following properties:
 
+- Behavioral Property: The value of the tokens is determined through logic and calculation, established and reviewed periodically by community consensus.
+- Transferability: Tokens for engagement rewards are transferable, while certificates of learning are non-transferable.
+- Indivisible/Whole: Both rewards and certificates are indivisible.
+- Minting: The ability to issue new tokens for both types.
+- Role Support: Tokens can have defined roles to allow or prevent specific actions.
+- Burnable: The ability to remove Learning Tokens from the supply.
 
-Exploring The Code
-==================
+## Collaborations
 
-1. The smart-contract code lives in the `/contract` folder. See the README there for
-   more info. In blockchain apps the smart contract is the "backend" of your app.
-2. The frontend code lives in the `/frontend` folder. `/frontend/index.html` is a great
-   place to start exploring. Note that it loads in `/frontend/index.js`,
-   this is your entrypoint to learn how the frontend connects to the NEAR blockchain.
-3. Test your contract: `npm test`, this will run the tests in `integration-tests` directory.
+The Learning Tokens project benefits from collaborations with esteemed organizations such as Hyperledger and the Global Blockchain Business Association (GBBA). These partnerships provide a strong foundation and access to resources and expertise, fostering innovation and driving the project's success.
 
+## Implementation
 
-Deploy
-======
+To implement the Learning Tokens project, we will utilize tools and artifacts provided by the Interwork Alliance Token Taxonomy Framework (IWA TTF). We will also leverage open-source repositories such as eThaler, NEFERTI, and the IWA Github repositories for artifacts. These resources will enable us to define common token concepts, establish the token mechanism, and effectively measure the impact and benefits to learning communities.
 
-Every smart contract in NEAR has its [own associated account][NEAR accounts]. 
-When you run `npm run deploy`, your smart contract gets deployed to the live NEAR TestNet with a temporary dev account.
-When you're ready to make it permanent, here's how:
+## Future Opportunities
 
+Learning Tokens present exciting opportunities for communities and individuals. By incentivizing engagement and collaboration, the tokens create a culture of continuous learning, skill development, and knowledge sharing. They act as valuable credentials, certifying the acquisition of skills and competencies, and showcasing an individual's growth within their respective learning communities.
 
-Step 0: Install near-cli (optional)
--------------------------------------
+## Getting Started
 
-[near-cli] is a command line interface (CLI) for interacting with the NEAR blockchain. It was installed to the local `node_modules` folder when you ran `npm install`, but for best ergonomics you may want to install it globally:
+To get started with the Learning Tokens project, follow these steps:
 
-    npm install --global near-cli
+1. Clone the repository: `git clone https://github.com/your/repository.git`
+2. Install the required dependencies: `npm install`
+3. Configure the project settings and environment variables.
+4. Run the project: `npm start`
 
-Or, if you'd rather use the locally-installed version, you can prefix all `near` commands with `npx`
+## Contributing
 
-Ensure that it's installed with `near --version` (or `npx near --version`)
-
-
-Step 1: Create an account for the contract
-------------------------------------------
-
-Each account on NEAR can have at most one contract deployed to it. If you've already created an account such as `your-name.testnet`, you can deploy your contract to `near-blank-project.your-name.testnet`. Assuming you've already created an account on [NEAR Wallet], here's how to create `near-blank-project.your-name.testnet`:
-
-1. Authorize NEAR CLI, following the commands it gives you:
-
-      near login
-
-2. Create a subaccount (replace `YOUR-NAME` below with your actual account name):
-
-      near create-account near-blank-project.YOUR-NAME.testnet --masterAccount YOUR-NAME.testnet
-
-Step 2: deploy the contract
----------------------------
-
-Use the CLI to deploy the contract to TestNet with your account ID.
-Replace `PATH_TO_WASM_FILE` with the `wasm` that was generated in `contract` build directory.
-
-    near deploy --accountId near-blank-project.YOUR-NAME.testnet --wasmFile PATH_TO_WASM_FILE
-
-
-Step 3: set contract name in your frontend code
------------------------------------------------
-
-Modify the line in `src/config.js` that sets the account name of the contract. Set it to the account id you used above.
-
-    const CONTRACT_NAME = process.env.CONTRACT_NAME || 'near-blank-project.YOUR-NAME.testnet'
-
-
-
-Troubleshooting
-===============
-
-On Windows, if you're seeing an error containing `EPERM` it may be related to spaces in your path. Please see [this issue](https://github.com/zkat/npx/issues/209) for more details.
-
-
-  [create-near-app]: https://github.com/near/create-near-app
-  [Node.js]: https://nodejs.org/en/download/package-manager/
-  [jest]: https://jestjs.io/
-  [NEAR accounts]: https://docs.near.org/concepts/basics/account
-  [NEAR Wallet]: https://wallet.testnet.near.org/
-  [near-cli]: https://github.com/near/near-cli
-  [gh-pages]: https://github.com/tschaub/gh-pages
+Contributions to the Learning Tokens project are welcome. If you have any ideas, suggestions, or improvements, please feel free to submit a pull request or open an issue in the repository. Let's work together to enhance the project and make it
