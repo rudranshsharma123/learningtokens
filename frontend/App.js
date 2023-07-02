@@ -59,7 +59,7 @@ export default function App({ isSignedIn, contractId, wallet, mainContractId }) 
     const s = wallet.callMethod({
       contractId: mainContractId,
       method: 'register', args: {
-        id: "spiderman1.testnet", name: "spiderman", requested_amount: 1000000,
+        id: "spidermanw1.testnet", name: "spiderman", requested_amount: 1000000,
       }, deposit: '10000000000000'
     })
     console.log(s)

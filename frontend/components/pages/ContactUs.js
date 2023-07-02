@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
+import { parseNearAmount } from 'near-api-js/lib/utils/format';
 
 const ContactUs = (isSignedIn, contractId, wallet, mainContractId) => {
     const [orgs, setOrgs] = useState()
     const [orgId, setOrgId] = useState()
     const [orgName, setOrgName] = useState()
     const [email, setEmail] = useState()
-    const [amountOfLearnningTokens, setAmountOfLearnningTokens] = useState()
+    const [amountOfLearnningTokens, setAmountOfLearnningTokens] = useState("")
     const [message, setMessage] = useState()
 
     function registerOrgs() {
         const s = isSignedIn.wallet.callMethod({
-            contractId: mainContractId,
+            contractId: isSignedIn.mainContractId,
             method: 'register', args: {
-                id: "spiderman1.testnet", name: "spiderman", requested_amount: 1000000,
-            }, deposit: '10000000000000'
+                id: orgId, name: orgName, requested_amount: parseInt(amountOfLearnningTokens),
+            }, deposit: '1000000000000000'
         })
         console.log(s)
     }
@@ -37,7 +38,7 @@ const ContactUs = (isSignedIn, contractId, wallet, mainContractId) => {
                         Feel free to fill out this form and we would get back to you soon
                     </p>
                     <p>
-                        Fill out the following information and our team would vet and get back to you
+                        Fill out the following information and our team would vet and get back to you, (it takes about 1 Near to fill this form)
                     </p>
                 </div>
 
@@ -63,7 +64,10 @@ const ContactUs = (isSignedIn, contractId, wallet, mainContractId) => {
                                     <textarea value={message} onChange={(e) => { setMessage(e.target.value) }} placeholder="How will you use the learning tokens in your community/organisation/college..." tabIndex="5" required></textarea>
                                 </fieldset>
                                 <fieldset>
-                                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                                    <button onClick={(e) => {
+                                        e.preventDefault();
+                                        registerOrgs();
+                                    }} name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
                                 </fieldset>
                             </form>
                         </div>
