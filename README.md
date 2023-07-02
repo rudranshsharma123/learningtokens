@@ -53,6 +53,11 @@ To implement the Learning Tokens project, we will utilize tools and artifacts pr
 
 Learning Tokens present exciting opportunities for communities and individuals. By incentivizing engagement and collaboration, the tokens create a culture of continuous learning, skill development, and knowledge sharing. They act as valuable credentials, certifying the acquisition of skills and competencies, and showcasing an individual's growth within their respective learning communities.
 
+In future the aim is to have three things:
+1. To actually have a discord bot which will not allow us to send the learning tokens from the servers, and adding another automation layer allowing for the tokens to be sent autmatically
+2. To have AI filter out the orgs and send the rest one learning tokens automatically
+3. To have a Github bot, allowing to reward people on successfull PRs
+
 ## Getting Started
 
 To get started with the Learning Tokens project, follow these steps:
